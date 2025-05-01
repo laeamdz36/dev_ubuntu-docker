@@ -1,0 +1,23 @@
+name: ubu_ign
+
+services:
+  # Ignition Gateway
+  gateway:
+    image: inductiveautomation/ignition:8.1.47
+    container_name: DEV_Ignition1
+    ports:
+      # <puerto_host>:<puerto_contenedor>
+      - 3688:8088
+      - 3643:8043
+    volumes:
+      - gw-data:/usr/local/bin/ignition/data
+    # env_file: ignition.env  # optionally specify variables in a file, or using `environment:` below
+    environment:
+      - ACCEPT_IGNITION_EULA=Y
+      - IGNITION_EDITION=maker
+      - TZ=MX # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
+    command: >
+      -n ignition_lnx01 -m 1024 -- wrapper.java.initmemory=512 -Dignition.allowunsignedmodules=true
+
+volumes:
+  gw-data:
