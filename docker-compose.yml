@@ -10,6 +10,8 @@ services:
       # <puerto_host>:<puerto_contenedor>
       - 1088:8088
       - 1043:8043
+    networks:
+      - ot-network
     volumes:
       - gw-data:/usr/local/bin/ignition/data
     # env_file: ignition.env  # optionally specify variables in a file, or using `environment:` below
@@ -20,5 +22,24 @@ services:
     command: >
       -n ign-ubu01 -m 1024 -- wrapper.java.initmemory=512 -Dignition.allowunsignedmodules=true
 
+  node-red:
+    build:
+      context: ./opc_nodered
+      dockerfile: dockerfile.opc
+    container_name: DEV_nodered
+    environment:
+      - TZ=America/Monterrey
+    ports:
+      - "1880:1880"
+    networks:
+      - ot-network
+    volumes:
+      - node-red-data:/data
+
 volumes:
   gw-data:
+  node-red-data:
+
+
+networks:
+  ot-network:

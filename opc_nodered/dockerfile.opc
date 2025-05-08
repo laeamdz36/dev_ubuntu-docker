@@ -1,0 +1,9 @@
+FROM nodered/node-red:3.1.15
+
+# Instalar complementos
+RUN npm install --unsafe-perm --no-update-notifier --no-fund --only=production \
+    @opcua/for-node-red
+RUN npm install --unsafe-perm --no-update-notifier --no-fund --only=production \
+    install node-red-contrib-cip-ethernet-ip
+# Exponer el puerto
+EXPOSE 1880
