@@ -27,6 +27,7 @@ services:
       context: ./opc_nodered
       dockerfile: dockerfile.opc
     container_name: DEV_nodered
+    restart: always
     environment:
       - TZ=America/Monterrey
     ports:
