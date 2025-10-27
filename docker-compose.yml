@@ -1,4 +1,4 @@
-name: ubu_ign
+ name: ubu_ign
 
 services:
   # Ignition Gateway
