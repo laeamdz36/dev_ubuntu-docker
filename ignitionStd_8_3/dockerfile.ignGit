@@ -1,0 +1,8 @@
+FROM inductiveautomation/ignition:8.3-nightly
+
+USER root
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y git
+
+USER ignition
