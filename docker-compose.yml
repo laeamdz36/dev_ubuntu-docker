@@ -1,10 +1,10 @@
- name: ubu_ign
+name: ubu_ign
 
 services:
   # Ignition Gateway
   gateway:
-    image: inductiveautomation/ignition:8.1.47
-    container_name: DEV_Ignition1
+    image: inductiveautomation/ignition:8.3-nightly
+    container_name: DEV_IgnitionMKR1_83
     restart: always
     ports:
       # <puerto_host>:<puerto_contenedor>

@@ -1,0 +1,11 @@
+Ignition Main - Maker
+- 1088:8088
+- 1043:8043
+
+Ignition Dev 8.3 - Maker
+- 2088:8089
+- 2043:8044
+
+Ignition Dev 8.3 - Standar
+- 3088:8090
+- 3043:8045
