@@ -21,3 +21,9 @@ services:
       - TZ=MX # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
     command: >
       -n ign-ubu01 -m 1024 -- wrapper.java.initmemory=512 -Dignition.allowunsignedmodules=true
+
+volumes:
+  gw-datamkr83:
+
+networks:
+  ot-network:
