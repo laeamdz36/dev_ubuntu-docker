@@ -8,8 +8,8 @@ services:
     restart: always
     ports:
       # <puerto_host>:<puerto_contenedor>
-      - 3088:8090
-      - 3043:8045
+      - 3088:8088
+      - 3043:8043
     networks:
       - ot-network
     volumes:
