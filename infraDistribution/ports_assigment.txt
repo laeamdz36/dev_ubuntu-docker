@@ -9,3 +9,11 @@ Ignition Dev 8.3 - Maker
 Ignition Dev 8.3 - Standar
 - 3088:8088
 - 3043:8043
+
+Ignition Dev 8.1 - Standar
+- 4088:8088
+- 4043:8043
+
+Nov 3 2025
+Desplegar servidor estandar 8.1 en IOT server
+Desplegar servidor estandar 8.3 en dokcer ubuntu

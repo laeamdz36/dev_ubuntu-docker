@@ -1,0 +1,32 @@
+name: ubu_ign8_1std
+
+services:
+  # Ignition Gateway
+  gateway:
+    build:
+      context: .
+      dockerfile: dockerfile.ign_81_49
+    # image: inductiveautomation/ignition:8.3-nightly
+    container_name: DEV_IgnitionSTD81
+    restart: no
+    ports:
+      # <puerto_host>:<puerto_contenedor>
+      - 4088:8088
+      - 4043:8043
+    networks:
+      - ot-network
+    volumes:
+      - gw-datastd83:/usr/local/bin/ignition/data
+    # env_file: ignition.env  # optionally specify variables in a file, or using `environment:` below
+    environment:
+      - ACCEPT_IGNITION_EULA=Y
+      - IGNITION_EDITION=standard
+      - TZ=MX # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
+    command: >
+      -n ign-STD83_01 -m 1024 -- wrapper.java.initmemory=512 -Dignition.allowunsignedmodules=true
+
+volumes:
+  gw-datastd83:
+
+networks:
+  ot-network:

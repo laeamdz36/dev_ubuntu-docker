@@ -1,4 +1,4 @@
-FROM inductiveautomation/ignition:8.3-nightly
+FROM inductiveautomation/ignition:8.3.1
 
 USER root
 RUN apt-get update && \
