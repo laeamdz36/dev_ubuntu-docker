@@ -10,6 +10,7 @@ services:
       # <puerto_host>:<puerto_contenedor>
       - 1088:8088
       - 1043:8043
+      - 62541:62541
     networks:
       - ot-network
     volumes:
