@@ -11,6 +11,7 @@ services:
       - 1088:8088
       - 1043:8043
       - 62541:62541
+      - 62550:62550
     networks:
       - ot-network
     volumes:
