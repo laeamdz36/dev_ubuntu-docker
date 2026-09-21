@@ -3,7 +3,7 @@ name: ubu_ign
 services:
   # Ignition Gateway
   gateway:
-    image: inductiveautomation/ignition:8.3.2
+    image: inductiveautomation/ignition:8.3.9
     container_name: DEV_IgnitionMKR1_83
     restart: always
     ports:
@@ -12,6 +12,7 @@ services:
       - 1043:8043
       - 62541:62541
       - 62550:62550
+      - 3600:3600/udp
     networks:
       - ot-network
     volumes:
@@ -22,7 +23,7 @@ services:
       - IGNITION_EDITION=maker
       - TZ=America/Mexico_City # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
     command: >
-      -n ign-ubu01 -m 1024 -- wrapper.java.initmemory=512 -Dignition.allowunsignedmodules=true
+      -n ign-ubu01 -m 1024 -- wrapper.java.initmemory=1024 -Dignition.allowunsignedmodules=true
 
   node-red:
     build:
@@ -42,7 +43,6 @@ services:
 volumes:
   gw-data:
   node-red-data:
-
 
 networks:
   ot-network:
