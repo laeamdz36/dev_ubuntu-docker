@@ -1,4 +1,4 @@
-FROM inductiveautomation/ignition:8.1.50
+FROM inductiveautomation/ignition:8.1.55
 
 USER root
 RUN apt-get update && \

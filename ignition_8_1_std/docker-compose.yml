@@ -5,7 +5,7 @@ services:
   gateway:
     build:
       context: .
-      dockerfile: dockerfile.ign_81_49
+      dockerfile: dockerfile.ign_8_1_55
     # image: inductiveautomation/ignition:8.3-nightly
     container_name: DEV_IgnitionSTD81
     restart: no
@@ -20,10 +20,10 @@ services:
     # env_file: ignition.env  # optionally specify variables in a file, or using `environment:` below
     environment:
       - ACCEPT_IGNITION_EULA=Y
-      - IGNITION_EDITION=standard
-      - TZ=MX # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
+      - IGNITION_EDITION=maker
+      - TZ=America/Mexico_City # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
     command: >
-      -n ign-STD83_01 -m 1024 -- wrapper.java.initmemory=512 -Dignition.allowunsignedmodules=true
+      -n ign-STD83_01 -m 1024 -- wrapper.java.initmemory=1024 -Dignition.allowunsignedmodules=true
 
 volumes:
   gw-datastd83:
