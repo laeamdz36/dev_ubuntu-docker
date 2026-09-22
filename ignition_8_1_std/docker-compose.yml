@@ -20,7 +20,7 @@ services:
     # env_file: ignition.env  # optionally specify variables in a file, or using `environment:` below
     environment:
       - ACCEPT_IGNITION_EULA=Y
-      - IGNITION_EDITION=maker
+      - IGNITION_EDITION=standard
       - TZ=America/Mexico_City # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
     command: >
       -n ign-STD83_01 -m 1024 -- wrapper.java.initmemory=1024 -Dignition.allowunsignedmodules=true
