@@ -5,4 +5,14 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y git nano
 
+# Archivos de provisionamiento para el repo git en data
+COPY provisioning/gitignore /usr/local/share/ignition-provisioning/gitignore
+COPY provisioning/init-git-data.sh /usr/local/bin/init-git-data.sh
+# Elimina finales de línea CRLF (archivos editados en Windows) y da permisos de ejecución
+RUN sed -i 's/\r$//' /usr/local/share/ignition-provisioning/gitignore /usr/local/bin/init-git-data.sh && \
+    chmod 644 /usr/local/share/ignition-provisioning/gitignore && \
+    chmod 755 /usr/local/bin/init-git-data.sh
+
 USER ignition
+
+ENTRYPOINT ["tini", "-g", "--", "/usr/local/bin/init-git-data.sh"]
