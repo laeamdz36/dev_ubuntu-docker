@@ -3,6 +3,6 @@ FROM inductiveautomation/ignition:8.3.10
 USER root
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y git
+    apt-get install -y git nano
 
 USER ignition
